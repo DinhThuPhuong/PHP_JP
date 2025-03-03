@@ -35,6 +35,7 @@ class AuthController extends Controller
         } else {
             $user = new User;
             $user->email = $request->email;
+            $user->role_id = 2; //Role 2 la User
             // $user->name = $request->name;
             // $user->phoneNumber = $request->phoneNumber;
             // Bam mat khau su dungdung Bcrypt

@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\StoreController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\AuthController;
 
 Route::middleware('auth:sanctum')->get('/user/profile', function( Request $request)
@@ -24,6 +24,15 @@ Route::prefix('category')->group(function () {
     Route::post('/create', [CategoryController::class, 'create']);
     Route::put('/update/{id}', [CategoryController::class, 'update']);
     Route::delete('/delete/{id}', [CategoryController::class,'delete']);
+  
+});
+
+// RoleController
+Route::prefix('role')->group(function () {
+    Route::get('/', [RoleController::class, 'index']);
+    Route::post('/create', [RoleController::class, 'create']);
+    Route::put('/update/{id}', [RoleController::class, 'update']);
+    Route::delete('/delete/{id}', [RoleController::class,'delete']);
   
 });
 
