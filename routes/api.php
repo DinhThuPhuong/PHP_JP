@@ -18,14 +18,14 @@ Route::get('/test-token', function () {
 });
 
 
-//CategoryController
-// Route::prefix('category')->group(function () {
-//     Route::get('/', [CategoryController::class, 'index']);
-//     Route::post('/create', [CategoryController::class, 'create']);
-//     Route::put('/update/{id}', [CategoryController::class, 'update']);
-//     Route::delete('/delete/{id}', [CategoryController::class,'delete']);
+// CategoryController
+Route::prefix('category')->group(function () {
+    Route::get('/', [CategoryController::class, 'index']);
+    Route::post('/create', [CategoryController::class, 'create']);
+    Route::put('/update/{id}', [CategoryController::class, 'update']);
+    Route::delete('/delete/{id}', [CategoryController::class,'delete']);
   
-// });
+});
 
 //UserController
 Route::prefix('user')->group(function () {
