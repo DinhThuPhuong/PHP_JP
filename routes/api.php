@@ -37,15 +37,13 @@ Route::prefix('role')->group(function () {
 });
 
 //UserController
-Route::prefix('user')->group(function () {
+Route::prefix('user')->middleware('auth:sanctum')->group(function () {
     Route::get('/', [UserController::class, 'index']);
-    Route::get('/display/{id}', [UserController::class, 'display']);
-    Route::post('/create', [UserController::class, 'create']);
-    Route::put('/update/{id}', [UserController::class,'update_Profile']);
-    Route::delete('/delete/{id}', [UserController::class,'delete']);
-
-  
+    Route::get('/getProfile', [UserController::class, 'getProfile']);
+    Route::put('/updateProfile', [UserController::class,'updateProfile']);
+    Route::delete('/deleteUser', [UserController::class,'deleteUser']);
 });
+
 
 Route::prefix('auth')->group(function () {
     // Các route không cần bảo vệ (không yêu cầu token)
